@@ -20,10 +20,6 @@ js 以 64 位浮点数(IEEE754)的形式储存 number
 
 转换规则如下：
 
-$$
-6.5 = 110.1_2 = 1.101*2^4 = -1^0*(1+0.101)*2^{1025-1023}=(-1)^{sign}*(1+fraction)*2^{exponent-1023}
-$$
-
 所以$sign=0,exponent=1025=10000000001_2,fraction=1010000..000_2$
 
 为什么是$exponent-1023$ ?
@@ -33,12 +29,6 @@ $$
 当$e == 0$
 
 - $f!=0$，表示 subnormal，即比$2^{-1022}$更小的正常数,计算方法为:
-
-```
-$$
-{\displaystyle (-1)^{\text{sign}}\times 2^{1-1023}\times 0.{\text{fraction}}=(-1)^{\text{sign}}\times 2^{-1022}\times 0.{\text{fraction}}}
-$$
-```
 
 - $f==0$,表示$0 ||-0$,符号表示趋向的方向
 
@@ -88,7 +78,6 @@ Then the engine's code for `typeof`:
 <img
   src="https://gitee.com/Ryan-yang125/picture-bed/raw/master/upic/%E6%88%AA%E5%B1%8F2020-11-18%2017.10.03fFQNqu.png"
   alt="截屏2020-11-18 17.10.03"
-  style="zoom:50%;"
 />
 
 在检查（1）*undefined*的时候
